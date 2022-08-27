@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace Jozi.GameLibrary.MeshRendering
 {
-    [RequireComponent(typeof(MeshFilter))]
+    [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
     public class MeshGenerator : MonoBehaviour
     {
-        Mesh mesh;
+        private Mesh mesh;
 
-        Vector3[] vertices;
-        int[] triangles;
+        private Vector3[] vertices;
+        private int[] triangles;
 
         private void Start()
         {
@@ -32,7 +32,7 @@ namespace Jozi.GameLibrary.MeshRendering
             triangles = new int[]
             {
             0, 1, 2,
-            1, 2, 3
+            1, 3, 2
             };
         }
 
