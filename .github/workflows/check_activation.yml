@@ -1,0 +1,13 @@
+name: Unity License Check
+on:
+  workflow_dispatch: {}
+env:
+  UNITY_LICENSE: ${{secrets.UNITY_LICENSE}}
+jobs:
+  checkLicense:
+    name: Check for the Unity License
+    runs-on: ubuntu-latest
+    steps:
+      - name: Expose as artifact
+        if: ${{ !startsWith(env.UNITY_LICENSE, '<') }}
+        run: exit 1
